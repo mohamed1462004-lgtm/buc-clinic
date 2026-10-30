@@ -27,8 +27,13 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['patient', 'doctor', 'admin'],
+      enum: ['superadmin', 'clinicadmin', 'doctor', 'patient'],
       default: 'patient',
+    },
+    clinicId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Clinic',
+      default: null,
     },
     phone: {
       type: String,
